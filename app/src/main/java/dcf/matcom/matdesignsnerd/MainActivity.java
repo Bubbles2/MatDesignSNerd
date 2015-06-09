@@ -35,7 +35,8 @@ public class MainActivity extends ActionBarActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         //
         NavigationDrawerFragments drawerFragment = (NavigationDrawerFragments) getSupportFragmentManager().findFragmentById(R.id.fragment_navigation_drawer);
-        drawerFragment.setup((DrawerLayout) findViewById(R.id.drawer_layout),toolbar);
+        //
+        drawerFragment.setup(R.id.fragment_navigation_drawer,(DrawerLayout) findViewById(R.id.drawer_layout),toolbar);
     }
 
 
