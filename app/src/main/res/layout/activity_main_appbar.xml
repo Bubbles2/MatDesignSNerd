@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
+    android:fitsSystemWindows="true"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
@@ -11,6 +12,8 @@
         layout="@layout/app_bar">
 
     </include>
+
+    <!--push drawer below status bar  fitsSystemWindows-->
 
     <android.support.v4.widget.DrawerLayout
         android:id="@+id/drawer_layout"

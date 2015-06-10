@@ -2,17 +2,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EEE"
+    android:background="#FB8C00"
     tools:context="dcf.matcom.matdesignsnerd.NavigationDrawerFragments">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="0dp"
-        android:text="@string/hello_blank_fragment" />
-
+    <ImageView
+        android:layout_width="280dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="16dp"
+        android:src="@drawable/ic_abstract" />
 </RelativeLayout>
