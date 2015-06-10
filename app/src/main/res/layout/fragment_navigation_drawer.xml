@@ -7,9 +7,17 @@
 
     <!-- TODO: Update blank fragment layout -->
     <ImageView
+        android:id="@+id/mainimg"
         android:layout_width="280dp"
         android:layout_height="140dp"
         android:layout_marginTop="24dp"
         android:layout_marginBottom="16dp"
         android:src="@drawable/ic_abstract" />
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_below="@+id/mainimg"
+        android:id="@+id/recList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
 </RelativeLayout>

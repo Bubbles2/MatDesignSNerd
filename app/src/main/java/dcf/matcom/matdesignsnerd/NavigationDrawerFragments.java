@@ -8,11 +8,16 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -52,7 +57,14 @@ public class NavigationDrawerFragments extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_navigation_drawer, container, false);
+        View v = inflater.inflate(R.layout.fragment_navigation_drawer, container, false);
+        //
+        RecyclerView recyclerView = (RecyclerView) v.findViewById(R.id.recList);
+        RecycAdapter adapter = new RecycAdapter(getActivity(), getData());
+        recyclerView.setAdapter(adapter);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+
+        return v;
     }
 
 
@@ -123,4 +135,19 @@ public class NavigationDrawerFragments extends Fragment {
        return sharedPreferences.getString(preferenceName,defaultValue);
 
    }
+    //
+    public static List<Information> getData() {
+        //load only static data inside a drawer
+        List<Information> data = new ArrayList<>();
+        int[] icons = {R.drawable.ic_number1, R.drawable.ic_number2, R.drawable.ic_number3, R.drawable.ic_number4};
+        String[] titles = {"Vivz", "Anky", "Slidenerd", "YouTube"};
+        for (int i = 0; i < 6; i++) {
+            Information current = new Information();
+            current.iconId = icons[i % icons.length];
+            current.title = titles[i % titles.length];
+            data.add(current);
+        }
+        return data;
+    }
+
 }
