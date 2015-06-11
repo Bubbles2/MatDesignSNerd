@@ -29,6 +29,14 @@ public class RecycAdapter extends RecyclerView.Adapter<RecycAdapter.MyViewHolder
         data.remove(position);
         notifyItemRemoved(position);
     }
+    // Delete Item
+    public void deleteItem (int position) {
+        //
+        data.remove(position);
+        // Change way we use notify data set changed dont use blanket notification
+        // to avoid rebuilding entire data set
+        notifyItemRemoved(position);
+    }
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view=inflater.inflate(R.layout.custom_row, parent,false);
@@ -68,7 +76,9 @@ public class RecycAdapter extends RecyclerView.Adapter<RecycAdapter.MyViewHolder
         @Override
         public void onClick(View v) {
             // Careful to use getPosition if not in onBindviewholder otherwise it may not be valid
-            Toast.makeText(context,"Item clicked at position  "+getPosition(),Toast.LENGTH_SHORT).show();
+            //Toast.makeText(context,"Item clicked at position  "+getPosition(),Toast.LENGTH_SHORT).show();
+            // Delete
+            deleteItem(getPosition());
 
         }
     }
