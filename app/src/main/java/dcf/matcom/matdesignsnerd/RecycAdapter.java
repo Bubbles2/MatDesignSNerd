@@ -41,27 +41,35 @@ public class RecycAdapter extends RecyclerView.Adapter<RecycAdapter.MyViewHolder
         Information current=data.get(position);
         holder.title.setText(current.title);
         holder.icon.setImageResource(current.iconId);
-        //
-        holder.icon.setOnClickListener(new View.OnClickListener() {
-                                           @Override
-                                           public void onClick(View v) {
-                                               Toast.makeText(context,"Item clicked at position  "+position,Toast.LENGTH_SHORT).show();
-                                           }
-                                       }
-        );
+        // Manage Click Method 1.
+//        holder.icon.setOnClickListener(new View.OnClickListener() {
+//                                           @Override
+//                                           public void onClick(View v) {
+//                                               Toast.makeText(context,"Item clicked at position  "+position,Toast.LENGTH_SHORT).show();
+//                                           }
+//                                       }
+//        );
     }
     @Override
     public int getItemCount() {
         return data.size();
     }
 
-    class MyViewHolder extends RecyclerView.ViewHolder {
+    class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         TextView title;
         ImageView icon;
         public MyViewHolder(View itemView) {
             super(itemView);
             title= (TextView) itemView.findViewById(R.id.listText);
             icon= (ImageView) itemView.findViewById(R.id.listIcon);
+            icon.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            // Careful to use getPosition if not in onBindviewholder otherwise it may not be valid
+            Toast.makeText(context,"Item clicked at position  "+getPosition(),Toast.LENGTH_SHORT).show();
+
         }
     }
 }
