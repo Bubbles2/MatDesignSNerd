@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Collections;
 import java.util.List;
@@ -36,10 +37,18 @@ public class RecycAdapter extends RecyclerView.Adapter<RecycAdapter.MyViewHolder
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
+    public void onBindViewHolder(MyViewHolder holder, final int position) {
         Information current=data.get(position);
         holder.title.setText(current.title);
         holder.icon.setImageResource(current.iconId);
+        //
+        holder.icon.setOnClickListener(new View.OnClickListener() {
+                                           @Override
+                                           public void onClick(View v) {
+                                               Toast.makeText(context,"Item clicked at position  "+position,Toast.LENGTH_SHORT).show();
+                                           }
+                                       }
+        );
     }
     @Override
     public int getItemCount() {
