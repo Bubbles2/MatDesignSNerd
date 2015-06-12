@@ -5,5 +5,7 @@
     <color name="primaryColor" >#FFEB3B</color>
     <color name="primaryColorDark" >#FBC02D</color>
     <color name="accentColor" >#50514F</color>
+    <color name="colorHighlight" >#FFEB3B</color>
+    <color name="white" >#FFFFFF</color>
 
 </resources>
